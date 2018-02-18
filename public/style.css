@@ -19,3 +19,20 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+  padding: 0 1rem;
+  background-color: #736357;
+  color: #a8c9dd;
+}
+
+#background{
+  background-image: url('./club.jpg');
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

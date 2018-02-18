@@ -1,5 +1,6 @@
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const isDev = process.env.NODE_ENV === 'development'
+const path = require('path')
 
 module.exports = {
   entry: './client/index.js',
@@ -9,11 +10,16 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    rules: [
+    loaders: [
       {
-        test: /\.jsx?$/,
+        test: /jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+      },
+      {
+        test: /(\.css|\.scss)$/,
+        include: path.join(__dirname, 'node_modules'),
+        loaders: ['style-loader', 'css-loader']
       }
     ]
   },

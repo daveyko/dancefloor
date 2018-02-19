@@ -21,6 +21,10 @@ class  Main extends Component {
   componentDidMount(){
     this.props.fetchTrendingStickers()
     this.props.fetchAllSongs()
+    const script = document.createElement('script')
+    script.src = '/confetti.js'
+    script.async = true
+    document.body.appendChild(script)
   }
 
   render(){

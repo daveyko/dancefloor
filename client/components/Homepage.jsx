@@ -9,9 +9,6 @@ const specs = {
   drop(props, monitor, component){
     console.log('droptarget monitor!', monitor.getSourceClientOffset())
     return monitor.getSourceClientOffset()
-    // console.log('PROPS', props, 'component', component, 'dropresult', monitor.getDropResult())
-    // let movedDancer = props.allDancers.filter(dancer => dancer.id === monitor.getItem().id).map(dancer => Object.assign({}, dancer, {top: monitor.getSourceClientOffset().y, left: monitor.getSourceClientOffset().x}))
-    // props.handleMoveDancer(movedDancer)
   }
 }
 

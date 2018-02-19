@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Navbar, Homepage} from './components'
-import {fetchDancers, fetchSongs} from './store'
+import {fetchDancers, fetchSongs, fetchVenues} from './store'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
 
@@ -21,6 +21,7 @@ class  Main extends Component {
   componentDidMount(){
     this.props.fetchTrendingStickers()
     this.props.fetchAllSongs()
+    this.props.fetchAllVenues()
     const script = document.createElement('script')
     script.src = '/confetti.js'
     script.async = true
@@ -53,6 +54,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchAllSongs(){
       dispatch(fetchSongs())
+    },
+    fetchAllVenues(){
+      dispatch(fetchVenues())
     }
   }
 }

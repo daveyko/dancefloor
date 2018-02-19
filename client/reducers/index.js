@@ -5,6 +5,8 @@ import danceFloorDancers from './danceFloorDancers'
 import showSongs from './showSongs'
 import allSongs from './allSongs'
 import currSong from './currentSong'
+import currDanceFloor from './currentDanceFloor'
+import allVenues from './allDanceFloors'
 
 const rootReducer = combineReducers({
   showDancers,
@@ -12,7 +14,9 @@ const rootReducer = combineReducers({
   danceFloorDancers,
   showSongs,
   allSongs,
-  currSong
+  currSong,
+  currDanceFloor,
+  allVenues
 })
 
 export default rootReducer

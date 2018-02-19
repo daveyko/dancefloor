@@ -23,11 +23,23 @@ form div {
 header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   height: 7vh;
   padding: 0 1rem;
   background-color: #736357;
   color: #a8c9dd;
+}
+
+a{
+  color: #a8c9dd;
+}
+
+h4{
+  margin: 10px;
+}
+
+.app-name{
+  margin-right: auto;
 }
 
 #background{
@@ -130,7 +142,27 @@ header {
   animation: confetti-fast 2.25s linear 1 forwards;
 }
 
+.wrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 
+.searchbar{
+  width: 85%;
+  border: 3px solid #00B4CC;
+  padding: 5px;
+  border-radius: 5px;
+}
 
-
+.searchbutton{
+  position:absolute;
+  right: 35px;
+  height: 29px;
+  border-radius: 5px;
+  background: #00B4CC;
+  color: white;
+  border: 1px solid #00B4CC;
+  font-size: 20px;
+}

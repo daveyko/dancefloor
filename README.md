@@ -4,3 +4,8 @@ React/Redux/ReactDND web app that uses the GIPHY API to create a dancefloor of G
 
 Also choose between 3 songs (locally served files), and 3 different dancefloors(locally served images)
 
+<br />
+<p align="center">
+  <img src="dancefloor.gif" height="500">
+</p>
+<br />

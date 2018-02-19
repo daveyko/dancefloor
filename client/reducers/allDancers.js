@@ -6,7 +6,7 @@ const getDancers = dancers => ({type: GET_DANCERS, dancers})
 
 //THUNK CREATORS
 const apiKey = 'jIxgg6PkUJsL9TPIujZ40AmEIT3j3K8A'
-var giphy = require('giphy-api')({https: true})(apiKey);
+var giphy = require('giphy-api')({https: true, apiKey});
 
 //stock dancers
 export function fetchDancers () {

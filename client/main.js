@@ -2,7 +2,10 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Navbar, Homepage} from './components'
-import {fetchDancers} from './store'
+import {fetchDancers, fetchSongs} from './store'
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
+
 
 /**
  * COMPONENT
@@ -16,8 +19,8 @@ class  Main extends Component {
   }
 
   componentDidMount(){
-    console.log('yo', fetchDancers)
     this.props.fetchTrendingStickers()
+    this.props.fetchAllSongs()
   }
 
   render(){
@@ -43,13 +46,18 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendingStickers () {
       dispatch(fetchDancers())
+    },
+    fetchAllSongs(){
+      dispatch(fetchSongs())
     }
   }
 }
 
 // The `withRouter` wrapper makes sure that updates are not blocked
 // when the url changes
-export default connect(state => state, mapDispatchToProps)(Main)
+
+const MainWrapper =  connect(state => state, mapDispatchToProps)(Main)
+export default DragDropContext(HTML5Backend)(MainWrapper)
 
 /**
  * PROP TYPES

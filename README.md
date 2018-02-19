@@ -6,6 +6,6 @@ Also choose between 3 songs (locally served files), and 3 different dancefloors(
 
 <br />
 <p align="center">
-  <img src="dancefloor.gif" height="500">
+  <img src="/dancefloor.gif" height="500">
 </p>
 <br />

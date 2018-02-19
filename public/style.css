@@ -24,15 +24,74 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 3rem;
+  height: 7vh;
   padding: 0 1rem;
   background-color: #736357;
   color: #a8c9dd;
 }
 
 #background{
-  background-image: url('./club.jpg');
-  position: absolute;
-  height: 100%;
+  background-image: url('/venues/club.jpg');
+  height: 93vh;
   width: 100%;
 }
+
+.dancer-container{
+  overflow-y: scroll;
+  height: 30vh;
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dancer-thumbnail{
+  border-radius: 50%;
+  float: left;
+  background-color: gray;
+  height: 50%;
+  width: 22.5%;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.dancer{
+  position: absolute;
+  height: 300px;
+  width: 300px;
+}
+
+.song{
+  color: white;
+}
+
+.confetti-container {
+  perspective: 700px;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@keyframes confetti-slow {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(25px, 105vh, 0) rotateX(360deg) rotateY(180deg); }
+}
+
+@keyframes confetti-medium {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(100px, 105vh, 0) rotateX(100deg) rotateY(360deg); }
+}
+
+@keyframes confetti-fast {
+  0% { transform: translate3d(0, 0, 0) rotateX(0) rotateY(0); }
+
+  100% { transform: translate3d(-50px, 105vh, 0) rotateX(10deg) rotateY(250deg); }
+}
+

@@ -1,4 +1,3 @@
-import axios from 'axios'
 //ACTION TYPES
 
 const GET_DANCERS = 'GET_DANCERS'
@@ -22,11 +21,12 @@ export function fetchDancers () {
       limit: 10
     })
     .then(data => {
-      console.log('data', data.data)
-      dispatch(getDancers(data.data))
+      let updatedData = data.data.map(dancer => {
+        return Object.assign({}, dancer, {top: 0, left: 0})
+      })
+      dispatch(getDancers(updatedData))
     })
   }
-
 }
 
 const allDancers = []

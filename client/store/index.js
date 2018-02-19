@@ -13,3 +13,7 @@ const store = createStore(rootReducer, middleware)
 export default store
 export * from '../reducers/showDancers'
 export * from '../reducers/allDancers'
+export * from '../reducers/danceFloorDancers'
+export * from '../reducers/showSongs'
+export * from '../reducers/allSongs'
+export * from '../reducers/currentSong'

@@ -10,6 +10,7 @@ const middleware = composeWithDevTools(applyMiddleware(
 ))
 const store = createStore(rootReducer, middleware)
 
+//this way we can access all of our action creators, and thunks from this file instead of separate files
 export default store
 export * from '../reducers/showDancers'
 export * from '../reducers/allDancers'

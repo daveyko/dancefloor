@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 a {
@@ -36,6 +36,7 @@ a{
 
 h4{
   margin: 10px;
+  cursor: pointer;
 }
 
 .app-name{
@@ -47,6 +48,8 @@ h4{
   background-size: 100% 100%;
   height: 93vh;
   width: 100%;
+  display: flex;
+  justify-content: flex-end
 }
 
 .dancer-container{
@@ -54,9 +57,11 @@ h4{
   height: 30vh;
   display: flex;
   flex-direction:row;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 25px 0px 25px;
 }
+
 
 .dancer-thumbnail{
   border-radius: 50%;
@@ -64,19 +69,57 @@ h4{
   background-color: gray;
   height: 50%;
   width: 22.5%;
-  margin: 5px;
+  margin: 10px 5px 10px 5px;
   display: flex;
-  justify-content: center;
   padding: 10px;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dancer-thumbnail:last-child{
+  margin-right: auto;
+}
+
+.dancer-thumbnail:hover{
+  background-color: white;
+}
+
+.dancer-wrapper{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.dancer-wrapper:hover{
+  border: 1px solid white;
+}
+
+.dancer-wrapper:hover .remove-dancer{
+  display: inline-block;
+  width: 10%
+}
+
+.remove-dancer{
+  display: none;
 }
 
 .dancer{
-  position: absolute;
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
+}
+
+.songs-container{
+  display:flex;
+  flex-direction: column;
 }
 
 .song{
+  color: #00B4CC;
+  text-align: center;
+  cursor: pointer;
+}
+
+.song:hover{
   color: white;
 }
 
@@ -154,6 +197,7 @@ h4{
   border: 3px solid #00B4CC;
   padding: 5px;
   border-radius: 5px;
+  outline: none;
 }
 
 .searchbutton{
@@ -165,4 +209,8 @@ h4{
   color: white;
   border: 1px solid #00B4CC;
   font-size: 20px;
+}
+
+audio{
+  width: 5%;
 }

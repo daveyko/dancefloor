@@ -5,7 +5,10 @@ import {toggleSongs, changeSong} from '../store'
 import {connect} from 'react-redux'
 
 
+//Song choice modal
+
 const Choosesong = (props) => {
+
   return (
     <Modal style = {{marginTop: '230px'}} show = {props.showSongs} onHide = {props.handleToggleSongs} aria-labelledby="ModalHeader" >
     <Modal.Header />
@@ -18,7 +21,7 @@ const Choosesong = (props) => {
           })}
           </div>
         </Modal.Body>
-    <Modal.Footer />
+        <Modal.Footer />
   </Modal>
   )
 }

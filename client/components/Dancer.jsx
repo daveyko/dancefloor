@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { DragSource } from 'react-dnd'
 import Type from './Type'
-import {moveDancer} from '../store'
+import {moveDancer, removeDancer} from '../store'
 
+//JS object with methods to describe how the drag source reacts to drag and drop events
 const dancerSource = {
 
 	beginDrag(props) {
@@ -14,13 +15,12 @@ const dancerSource = {
     if (monitor.didDrop()){
     let {x, y} = monitor.getDropResult()
     let movedDancer = Object.assign({}, component.props.dancer, {top: y, left: x})
-    console.log('moveddancer!', movedDancer)
     component.store.dispatch(moveDancer(movedDancer))
     }
-		// return {component}
 	}
 }
 
+//returns an object of props to inject into component
 const collect = (connectDND, monitor) => {
 	return {
 		connectDragSource: connectDND.dragSource(),
@@ -34,13 +34,28 @@ const Dancer = (props) => {
   } else {
   return (
       props.connectDragSource(
-      <div className = "dancer" style = {{top: `${props.dancer.top}px`, left: `${props.dancer.left}px`}} >
-        <img src = {props.dancer.images.original.url} />
+      <div className = "dancer-wrapper" style = {{top: `${props.dancer.top}px`, left: `${props.dancer.left}px`}} >
+        <button onClick = {() => {props.handleRemoveDancer(props.dancer)}} className = "remove-dancer">x</button>
+        <img className = "dancer" src = {props.dancer.images.original.url} />
       </div>
       )
     )
   }
 }
 
-const dancerWrapper  = connect(state => state)(Dancer)
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleRemoveDancer(dancer){
+      dispatch(removeDancer(dancer))
+    }
+  }
+}
+
+
+const dancerWrapper  = connect(state => state, mapDispatchToProps)(Dancer)
+
+//DragSource higher order component to make our dancer draggable
+//We need to specify a TYPE so that the drop target knows which types to accept as a drag source
+
 export default DragSource(Type.DANCER, dancerSource, collect)(dancerWrapper)

@@ -1,6 +1,4 @@
-import axios from 'axios'
 //ACTION TYPES
-
 const CHANGE_SONG = 'CHANGE_SONG'
 
 //ACTION CREATORS

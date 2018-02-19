@@ -7,7 +7,6 @@ import Type from './Type'
 
 const specs = {
   drop(props, monitor, component){
-    console.log('droptarget monitor!', monitor.getSourceClientOffset())
     return monitor.getSourceClientOffset()
   }
 }
@@ -43,7 +42,7 @@ class Homepage extends Component{
     const songUrl = `http://localhost:8080/songs/${encodeURI(this.props.currSong + '.ogg')}`
     const dancers = this.renderDancers()
     return this.props.connectDropTarget(
-      <div id = "background">
+      <div id = "background" style = {{backgroundImage: `url(${this.props.allVenues[this.props.currDanceFloor]}`}} >
         {dancers}
         <audio src = {songUrl}  autoPlay controls />
       </div>

@@ -6,14 +6,13 @@ const path = require('path')
 module.exports = router
 
 
-router.get('/:songName', (req, res, next) => {
-  res.send(path.join(__dirname, '..', '..', 'public', 'songs', req.params.songName))
-})
-
 router.get('/', (req, res, next) => {
-  return readDir(path.join(__dirname, '..', '..', 'public', 'songs'))
-    .then(songs => {
-      res.json(songs)
+  return readDir(path.join(__dirname, '..', '..', 'public', 'venues'))
+    .then(venues => {
+      venues = venues.map(venue => {
+        return '/venues/' + venue
+      })
+      res.json(venues)
     })
     .catch(next)
 })

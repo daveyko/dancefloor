@@ -10,9 +10,9 @@ const getSongs = songs => ({type: GET_SONGS, songs})
 
 export function fetchSongs () {
   return function thunk (dispatch){
+    //read the directory of songs in the public directory and return an array of all the file names of the songs
     return axios.get('/api/songs')
     .then(data => {
-      console.log('fetchSongsData', data.data)
       dispatch(getSongs(data.data))
     })
   }

@@ -7,9 +7,9 @@ const GET_VENUES = 'GET_VENUES'
 const getVenues = venues => ({type: GET_VENUES, venues})
 
 //THUNK CREATORS
-
 export function fetchVenues () {
   return function thunk (dispatch){
+    //get all the venues (background image) files and return as an array
     return axios.get('/api/venues')
     .then(data => {
       dispatch(getVenues(data.data))

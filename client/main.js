@@ -1,27 +1,22 @@
 import React, {Component} from 'react'
-import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Navbar, Homepage} from './components'
 import {fetchDancers, fetchSongs, fetchVenues} from './store'
 import HTML5Backend from 'react-dnd-html5-backend'
 import { DragDropContext } from 'react-dnd'
 
-
-/**
- * COMPONENT
- *  The Main component is our 'picture frame' - it displays the navbar and anything
- *  else common to our entire app. The 'picture' inside the frame is the space
- *  rendered out by the component's `children`.
- */
 class  Main extends Component {
   constructor(props){
     super(props)
   }
 
   componentDidMount(){
+    //ajax request to fetch intial dancers, and all images/songs in local dir
     this.props.fetchTrendingStickers()
     this.props.fetchAllSongs()
     this.props.fetchAllVenues()
+
+    //add script to queue the confetti
     const script = document.createElement('script')
     script.src = '/confetti.js'
     script.async = true
@@ -38,15 +33,6 @@ class  Main extends Component {
   }
 }
 
-/**
- * CONTAINER
- */
-// const mapState = (state) => {
-//   return {
-//     isLoggedIn: !!state.user.id
-//   }
-// }
-
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchTrendingStickers () {
@@ -61,10 +47,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-// The `withRouter` wrapper makes sure that updates are not blocked
-// when the url changes
 
 const MainWrapper =  connect(state => state, mapDispatchToProps)(Main)
+
+//need to wrap root component in HOC in order to enable drag and drop feature
 export default DragDropContext(HTML5Backend)(MainWrapper)
 
 /**

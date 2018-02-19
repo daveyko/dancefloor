@@ -4,13 +4,14 @@ import {connect} from 'react-redux'
 import { DropTarget } from 'react-dnd'
 import Type from './Type'
 
-
+//JS object with methods to describe how the drag source reacts to drag and drop events
 const specs = {
-  drop(props, monitor, component){
+  drop(props, monitor){
     return monitor.getSourceClientOffset()
   }
 }
 
+//returns an object of props to inject into component
 function collect(connectDND, monitor) {
 	return {
 		connectDropTarget: connectDND.dropTarget(),
@@ -39,6 +40,7 @@ class Homepage extends Component{
   }
 
   render(){
+    //this Url points to the location of the locally hosted ogg audio files and will change based on what song the user selects
     const songUrl = `http://localhost:8080/songs/${encodeURI(this.props.currSong + '.ogg')}`
     const dancers = this.renderDancers()
     return this.props.connectDropTarget(
@@ -50,14 +52,9 @@ class Homepage extends Component{
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    handleMoveDancer(dancer){
-      dispatch(moveDancer(dancer))
-    }
-  }
-}
+//DropTarget higher order component to make our dancer draggable
+//We need to specify a TYPE so that the drop target knows which types to accept as a drag source
 
-const HomepageWrapper = connect(state => state, mapDispatchToProps)(Homepage)
+const HomepageWrapper = connect(state => state)(Homepage)
 export default DropTarget(Type.DANCER, specs, collect)(HomepageWrapper)
 

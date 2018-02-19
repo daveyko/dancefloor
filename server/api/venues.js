@@ -5,7 +5,7 @@ const readDir = Promise.promisify(fs.readdir)
 const path = require('path')
 module.exports = router
 
-
+//return arr of all venues
 router.get('/', (req, res, next) => {
   return readDir(path.join(__dirname, '..', '..', 'public', 'venues'))
     .then(venues => {

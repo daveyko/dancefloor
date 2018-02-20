@@ -81,7 +81,7 @@ h4{
 }
 
 .dancer-thumbnail:hover{
-  background-color: white;
+  background-color: black;
 }
 
 .dancer-wrapper{
@@ -114,13 +114,13 @@ h4{
 }
 
 .song{
-  color: #00B4CC;
+  color: black;
   text-align: center;
   cursor: pointer;
 }
 
 .song:hover{
-  color: white;
+  color: #00B4CC;
 }
 
 .confetti-container {

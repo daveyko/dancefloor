@@ -4,6 +4,8 @@ React/Redux/ReactDND web app that uses the GIPHY API to create a dancefloor of G
 
 Also choose between 3 songs (locally served files), and 3 different dancefloors(locally served images)
 
+https://dancingifs.herokuapp.com/ (audio files don't work yet need to host audio files on S3 - AWS)
+
 How to run on local machine
 
 1) git clone this repo
@@ -11,6 +13,8 @@ How to run on local machine
 2) npm install 
 
 3) npm start-dev
+
+4) open browser to localhost:8080
 
 
 <br />

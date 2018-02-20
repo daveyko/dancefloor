@@ -29,7 +29,7 @@ class Choosedancer extends Component {
 
   render(){
     return (
-      <Modal style = {{marginTop: '230px'}} show = {this.props.showDancers} onHide = {this.props.handleToggleDancers} aria-labelledby="ModalHeader" >
+      <Modal show = {this.props.showDancers} onHide = {this.props.handleToggleDancers} aria-labelledby="ModalHeader" >
       <Modal.Header />
           <Modal.Body>
             <div className = "dancer-container">

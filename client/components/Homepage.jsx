@@ -27,6 +27,7 @@ class Homepage extends Component{
   constructor(props){
     super(props)
     this.renderDancers = this.renderDancers.bind(this)
+    this.sound = ''
   }
 
   renderDancers(){
@@ -41,12 +42,12 @@ class Homepage extends Component{
 
   render(){
     //this Url points to the location of the locally hosted ogg audio files and will change based on what song the user selects
-    const songUrl = `http://localhost:${process.env.PORT || 8080}/songs/${encodeURI(this.props.currSong + '.ogg')}`
+    const songUrl = `https://s3.us-east-2.amazonaws.com/davidkosongs/${encodeURI(this.props.currSong)}.ogg`
     const dancers = this.renderDancers()
     return this.props.connectDropTarget(
       <div id = "background" style = {{backgroundImage: `url(${this.props.allVenues[this.props.currDanceFloor]}`}}>
         {dancers}
-        <audio src = {songUrl}  autoPlay controls />
+        {this.props.currSong ? <audio src = {songUrl}  autoPlay controls /> : null}
       </div>
     )
   }
